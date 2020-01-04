@@ -13,9 +13,8 @@ let
     let defaults = lib.collect (x: x ? default) users;
     in map (x: x.default) defaults;
 
-
   suites = with profiles; rec {
-    work = [ develop virt users.nixos users.root ];
+    work = [ develop virt users.nrd ci-agent ssh ];
 
     graphics = work ++ [ graphical ];
 
