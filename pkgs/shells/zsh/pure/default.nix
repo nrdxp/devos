@@ -1,11 +1,9 @@
 { lib, stdenv, srcs }:
-let version = lib.flk.mkVersion srcs.pure;
+let src = srcs.pure;
 in
 stdenv.mkDerivation {
-  pname = "pure";
-  inherit version;
-
-  srcs = srcs.pure;
+  inherit src;
+  inherit (src) pname version;
 
   buildPhase = "true";
 

@@ -5,6 +5,6 @@ final: prev: {
     in
     {
       inherit src;
-      version = prev.lib.flk.mkVersion src;
+      inherit (src) version;
     });
 }

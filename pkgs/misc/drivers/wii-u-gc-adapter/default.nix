@@ -1,12 +1,11 @@
 { lib, stdenv, pkgconfig, libudev, libusb, srcs, ... }:
 
+let src = srcs.wii-u-gc-adapter; in
 stdenv.mkDerivation {
-  pname = "wii-u-gc-adapter";
-  version = lib.flk.mkVersion srcs.wii-u-gc-adapter;
+  inherit src;
+  inherit (src) pname version;
 
   buildInputs = [ pkgconfig libudev libusb ];
-
-  src = srcs.wii-u-gc-adapter;
 
   installPhase = ''
     mkdir -p $out/bin

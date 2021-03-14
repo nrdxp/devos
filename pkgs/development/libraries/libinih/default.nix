@@ -1,11 +1,9 @@
 { stdenv, lib, meson, ninja, srcs, ... }:
-let version = "r53";
-in
+let src = srcs.libinih; in
 stdenv.mkDerivation {
-  pname = "libinih";
-  inherit version;
+  inherit (src) pname version;
+  inherit src;
 
-  src = srcs.libinih;
 
   buildInputs = [ meson ninja ];
 

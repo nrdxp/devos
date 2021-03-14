@@ -13,14 +13,11 @@
 , gnumake
 , srcs
 }:
-let
-  version = lib.flk.mkVersion srcs.steamcompmgr;
+let src = srcs.steamcompmgr;
 in
 stdenv.mkDerivation {
-  inherit version;
-
-  pname = "steamcompmgr";
-  src = srcs.steamcompmgr;
+  inherit src;
+  inherit (src) pname version;
 
   buildInputs = [
     libudev

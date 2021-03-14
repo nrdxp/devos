@@ -5,6 +5,7 @@ final: prev: {
       src = prev.srcs.redshift;
     in
     {
-      version = prev.lib.flk.mkVersion src;
+      inherit src;
+      inherit (src) version;
     })).override { withAppIndicator = prev.stdenv.isLinux; };
 }
