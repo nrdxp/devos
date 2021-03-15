@@ -7,13 +7,6 @@ in
   options = {
     services.xserver.windowManager.steam = {
       enable = mkEnableOption "steam";
-      package = mkOption {
-        type = lib.types.package;
-        default = pkgs.steam;
-        description = ''
-          The Steam package to use.
-        '';
-      };
       extraSessionCommands = mkOption {
         type = lib.types.str;
         default = "";
@@ -25,7 +18,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [ cfg.package ];
+    programs.steam.enable = true;
 
     services.xserver.windowManager.session = [{
       name = "steam";
