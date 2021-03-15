@@ -27,6 +27,7 @@ in
       nix-index
       nmap
       ripgrep
+      skim
       tealdeer
       utillinux
       whois
