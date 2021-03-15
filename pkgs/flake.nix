@@ -20,6 +20,7 @@
     wii-u-gc-adapter.flake = false;
     pure.url = "github:sindresorhus/pure";
     pure.flake = false;
+    kak-powerline = { url = "github:andreyorst/powerline.kak"; flake = false; };
   };
 
   outputs = { self, nixpkgs, ... }: {

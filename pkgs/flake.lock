@@ -16,6 +16,22 @@
         "type": "github"
       }
     },
+    "kak-powerline": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1614236035,
+        "narHash": "sha256-g86vjb9qZPFtXLiKI+aj9l6/DyDrkef1g8REnMLUgic=",
+        "owner": "andreyorst",
+        "repo": "powerline.kak",
+        "rev": "64ad98b6c85e63345563671b043960464d51c4b0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "andreyorst",
+        "repo": "powerline.kak",
+        "type": "github"
+      }
+    },
     "libinih": {
       "flake": false,
       "locked": {
@@ -117,6 +133,7 @@
     "root": {
       "inputs": {
         "any-nix-shell": "any-nix-shell",
+        "kak-powerline": "kak-powerline",
         "libinih": "libinih",
         "nix-zsh-completions": "nix-zsh-completions",
         "nixpkgs": "nixpkgs",

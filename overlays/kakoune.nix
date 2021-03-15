@@ -4,7 +4,11 @@ final: prev: {
       (kak-fzf.override { fzf = final.skim; })
       kak-auto-pairs
       kak-buffers
-      kak-powerline
+      (kak-powerline.overrideAttrs
+        (self:
+          let src = prev.srcs.kak-powerline;
+          in { inherit src; inherit (src) version; })
+      )
       kak-vertical-selection
     ];
   };

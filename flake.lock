@@ -316,6 +316,22 @@
         "type": "github"
       }
     },
+    "kak-powerline": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1614236035,
+        "narHash": "sha256-g86vjb9qZPFtXLiKI+aj9l6/DyDrkef1g8REnMLUgic=",
+        "owner": "andreyorst",
+        "repo": "powerline.kak",
+        "rev": "64ad98b6c85e63345563671b043960464d51c4b0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "andreyorst",
+        "repo": "powerline.kak",
+        "type": "github"
+      }
+    },
     "libinih": {
       "flake": false,
       "locked": {
@@ -547,6 +563,7 @@
     "pkgs": {
       "inputs": {
         "any-nix-shell": "any-nix-shell",
+        "kak-powerline": "kak-powerline",
         "libinih": "libinih",
         "nix-zsh-completions": "nix-zsh-completions",
         "nixpkgs": [
@@ -560,7 +577,7 @@
         "wii-u-gc-adapter": "wii-u-gc-adapter"
       },
       "locked": {
-        "narHash": "sha256-kso6zd4ltrceq52dUdtAq33u8Rm2k18iN2IkURu56qc=",
+        "narHash": "sha256-McpE2sgI/FTRii8XhI6JEF+XpGTGS24Zj0x/4d+T1XE=",
         "path": "./pkgs",
         "type": "path"
       },
