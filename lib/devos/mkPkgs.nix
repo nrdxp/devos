@@ -14,6 +14,7 @@ in
         (overridesOverlay overridePkgs)
         self.overlay
         (final: prev: {
+          utillinuxMinimal = prev.utillinux;
           lib = prev.lib.extend (lfinal: lprev: {
             inherit dev;
             inherit (lib) nixosSystem;
