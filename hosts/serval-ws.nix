@@ -9,7 +9,6 @@
     system76-firmware
     obs-studio
     obs-v4l2sink
-    obs-linuxbrowser
   ];
 
   boot.initrd.availableKernelModules =
