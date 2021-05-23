@@ -20,6 +20,7 @@
       agenix.url = "github:ryantm/agenix";
       agenix.inputs.nixpkgs.follows = "latest";
       nixos-hardware.url = "github:nixos/nixos-hardware";
+      impermanence.url = "github:nix-community/impermanence";
 
       pkgs.url = "path:./pkgs";
       pkgs.inputs.nixpkgs.follows = "nixos";
@@ -31,6 +32,7 @@
     , digga
     , nixos
     , ci-agent
+    , impermanence
     , home
     , nixos-hardware
     , nur
@@ -75,6 +77,7 @@
             ci-agent.nixosModules.agent-profile
             home.nixosModules.home-manager
             agenix.nixosModules.age
+            impermanence.nixosModules.impermanence
             ./modules/customBuilds.nix
           ];
         };
