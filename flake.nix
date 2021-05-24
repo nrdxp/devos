@@ -3,7 +3,7 @@
 
   inputs =
     {
-      nixos.url = "nixpkgs/nixos-unstable";
+      nixos.url = "github:nrdxp/nixpkgs/more-general-fsbefore";
       latest.url = "nixpkgs";
       digga.url = "github:divnix/digga/develop";
 
@@ -32,8 +32,8 @@
     , digga
     , nixos
     , ci-agent
-    , impermanence
     , home
+    , impermanence
     , nixos-hardware
     , nur
     , agenix
@@ -77,8 +77,8 @@
             ci-agent.nixosModules.agent-profile
             home.nixosModules.home-manager
             agenix.nixosModules.age
-            impermanence.nixosModules.impermanence
             ./modules/customBuilds.nix
+            impermanence.nixosModules.impermanence
           ];
         };
 
@@ -88,11 +88,20 @@
           NixOS = { };
         };
         importables = rec {
-          profiles = digga.lib.importers.rakeLeaves ./profiles // {
-            users = digga.lib.importers.rakeLeaves ./users;
+          profiles = digga.lib.importers.mkProfileAttrs ./profiles // {
+            users = digga.lib.importers.mkProfileAttrs ./users;
           };
-          suites = with profiles; rec {
-            base = [ core users.nixos users.root ];
+          suites = with profiles; builtins.mapAttrs (_: v: map (x: x.default) v) rec {
+            work = [ core develop virt users.nrd ssh ];
+
+            graphics = work ++ [ graphical ];
+
+            mobile = graphics ++ [ laptop ];
+
+            play = graphics
+              ++ [ graphical.games network.torrent misc.disable-mitigations ];
+
+            goPlay = play ++ [ laptop ];
           };
         };
       };

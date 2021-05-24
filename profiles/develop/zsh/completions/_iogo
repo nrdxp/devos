@@ -1,0 +1,112 @@
+#compdef iogo
+
+autoload -U is-at-least
+
+_iogo() {
+    typeset -A opt_args
+    typeset -a _arguments_options
+    local ret=1
+
+    if is-at-least 5.2; then
+        _arguments_options=(-s -S -C)
+    else
+        _arguments_options=(-s -C)
+    fi
+
+    local context curcontext="$curcontext" state line
+    _arguments "${_arguments_options[@]}" \
+'-h[Prints help information]' \
+'--help[Prints help information]' \
+'-V[Prints version information]' \
+'--version[Prints version information]' \
+":: :_iogo_commands" \
+"*::: :->iogo" \
+&& ret=0
+    case $state in
+    (iogo)
+        words=($line[1] "${words[@]}")
+        (( CURRENT += 1 ))
+        curcontext="${curcontext%:*:*}:iogo-command-$line[1]:"
+        case $line[1] in
+            (events)
+_arguments "${_arguments_options[@]}" \
+'*--topic=[topic]' \
+'-h[Prints help information]' \
+'--help[Prints help information]' \
+'-V[Prints version information]' \
+'--version[Prints version information]' \
+'*::namespace -- namespace:' \
+&& ret=0
+;;
+(plan)
+_arguments "${_arguments_options[@]}" \
+'-h[Prints help information]' \
+'--help[Prints help information]' \
+'-V[Prints version information]' \
+'--version[Prints version information]' \
+':namespace -- Name of the namespace:' \
+'::job -- Name of the job to run:' \
+&& ret=0
+;;
+(completions)
+_arguments "${_arguments_options[@]}" \
+'-h[Prints help information]' \
+'--help[Prints help information]' \
+'-V[Prints version information]' \
+'--version[Prints version information]' \
+':shell -- bash, elvish, fish, powershell, or zsh:' \
+&& ret=0
+;;
+(help)
+_arguments "${_arguments_options[@]}" \
+'-h[Prints help information]' \
+'--help[Prints help information]' \
+'-V[Prints version information]' \
+'--version[Prints version information]' \
+&& ret=0
+;;
+        esac
+    ;;
+esac
+}
+
+(( $+functions[_iogo_commands] )) ||
+_iogo_commands() {
+    local commands; commands=(
+        "events:" \
+"plan:Plan and execute a Nomad job" \
+"completions:Generate shell completion files" \
+"help:Prints this message or the help of the given subcommand(s)" \
+    )
+    _describe -t commands 'iogo commands' commands "$@"
+}
+(( $+functions[_iogo__completions_commands] )) ||
+_iogo__completions_commands() {
+    local commands; commands=(
+
+    )
+    _describe -t commands 'iogo completions commands' commands "$@"
+}
+(( $+functions[_iogo__events_commands] )) ||
+_iogo__events_commands() {
+    local commands; commands=(
+
+    )
+    _describe -t commands 'iogo events commands' commands "$@"
+}
+(( $+functions[_iogo__help_commands] )) ||
+_iogo__help_commands() {
+    local commands; commands=(
+
+    )
+    _describe -t commands 'iogo help commands' commands "$@"
+}
+(( $+functions[_iogo__plan_commands] )) ||
+_iogo__plan_commands() {
+    local commands; commands=(
+
+    )
+    _describe -t commands 'iogo plan commands' commands "$@"
+}
+
+_iogo "$@"
