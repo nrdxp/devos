@@ -4,7 +4,7 @@
     challengeResponseAuthentication = false;
     passwordAuthentication = false;
     forwardX11 = true;
-    permitRootLogin = "no";
+    permitRootLogin = "yes";
     startWhenNeeded = true;
     openFirewall = true;
   };
