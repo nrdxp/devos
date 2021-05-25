@@ -31,9 +31,9 @@ in
     cachix.owner = "nrd";
   };
 
-  users.users.nrd.openssh.authorizedKeys.keyFiles = [
-    ./yubi.pub
-  ];
+  users.users.nrd.openssh.authorizedKeys.keyFiles = [ ./yubi.pub ];
+
+  users.users.root.openssh.authorizedKeys.keyFiles = [ ./yubi.pub ];
 
   users.users.root.passwordFile = "/run/secrets/root";
 
@@ -52,13 +52,14 @@ in
     imports = [ ../profiles/git ../profiles/alacritty ../profiles/direnv ];
 
     home = {
-      activation.myActivationAction = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-        mkdir -p ~/{.aws,cargo,.ssh,.config/cachix}
-        ln -sf /run/secrets/aws ~/.aws/credentials
-        ln -sf /run/secrets/cargo ~/.cargo/credentials
-        ln -sf /run/secrets/cachix ~/.config/cachix/cachix.dhall
-        ln -sf /run/secrets/iohk ~/.ssh/iohk
-      '';
+      activation.myActivationAction =
+        lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+          mkdir -p ~/{.aws,cargo,.ssh,.config/cachix}
+          ln -sf /run/secrets/aws ~/.aws/credentials
+          ln -sf /run/secrets/cargo ~/.cargo/credentials
+          ln -sf /run/secrets/cachix ~/.config/cachix/cachix.dhall
+          ln -sf /run/secrets/iohk ~/.ssh/iohk
+        '';
 
       file = {
         ".ssh/config".text = lib.mkBefore ''
@@ -89,11 +90,15 @@ in
 
     programs.git = {
       userName = name;
-      userEmail = "tim.deherrera@iohk.io";
+      userEmail = "tim.deh@pm.me";
       signing = {
         key = "8985725DB5B0C122";
         signByDefault = true;
       };
+      includes = [{
+        condition = "gitdir:~/work/";
+        path = ./work.inc;
+      }];
     };
 
     programs.ssh = {
