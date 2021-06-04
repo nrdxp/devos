@@ -1,4 +1,9 @@
 {
+  fileSystems."/etc/ssh" = {
+    depends = [ "/persist" ];
+    neededForBoot = true;
+  };
+
   environment.persistence."/persist" = {
     directories = [
       "/etc/nixos"
