@@ -51,11 +51,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1621892484,
-        "narHash": "sha256-tr3VcLVtX4dSLN5bmpc2/yNM0rxMEIFbi+oeJGj69FA=",
+        "lastModified": 1622835788,
+        "narHash": "sha256-Wbh/KYamc04DCXvAjUaeqje/LG600aKy1Al/Yx86j0w=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "5ba789eeca29a85144d1b611e52d09b132bedd91",
+        "rev": "25964547fbddc1f8867735838e88202777fd7799",
         "type": "github"
       },
       "original": {
@@ -147,11 +147,11 @@
     "steamcompmgr": {
       "flake": false,
       "locked": {
-        "lastModified": 1621514761,
-        "narHash": "sha256-pP6w4GQWEX1Q7k0cqA3RBUEVLqWrexQmE/+I9uLvUjo=",
+        "lastModified": 1622391127,
+        "narHash": "sha256-zpHxpRKR5asuVQvVnt82Oq/phOU982Q0CYzKL+mGtUo=",
         "owner": "gamer-os",
         "repo": "steamos-compositor-plus",
-        "rev": "449cdc8d02261b441488a2b383e593408bc535ca",
+        "rev": "8bde1b82dc4e8cc8db9d9d9b93dc90a9318d6f44",
         "type": "github"
       },
       "original": {
