@@ -17,7 +17,7 @@
       home.inputs.nixpkgs.follows = "nixos";
       naersk.url = "github:nmattia/naersk";
       naersk.inputs.nixpkgs.follows = "latest";
-      agenix.url = "github:ryantm/agenix";
+      agenix.url = "github:nrdxp/agenix/yubikey";
       agenix.inputs.nixpkgs.follows = "latest";
       nixos-hardware.url = "github:nixos/nixos-hardware";
       impermanence.url = "github:nix-community/impermanence";

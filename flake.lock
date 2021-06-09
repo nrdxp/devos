@@ -7,15 +7,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1620877075,
-        "narHash": "sha256-XvgTqtmQZHegu9UMDSR50gK5cHEM2gbnRH0qecmdN54=",
-        "owner": "ryantm",
+        "lastModified": 1622854061,
+        "narHash": "sha256-kS6AH/jAnq0M4WH0b+14+NEJWd6Z3xSeq15jefIH65E=",
+        "owner": "nrdxp",
         "repo": "agenix",
-        "rev": "e543aa7d68f222e1e771165da9e9a64b5bf7b3e3",
+        "rev": "52cb9ed53729319f2d039834fe9f9257a51f6733",
         "type": "github"
       },
       "original": {
-        "owner": "ryantm",
+        "owner": "nrdxp",
+        "ref": "yubikey",
         "repo": "agenix",
         "type": "github"
       }
