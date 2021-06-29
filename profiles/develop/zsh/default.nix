@@ -66,9 +66,12 @@ in
     ];
   };
 
+  environment.pathsToLink = [ "/share/zsh" ];
+
   programs.zsh = {
     enable = true;
 
+    enableCompletion = false;
     enableGlobalCompInit = false;
 
     histSize = 10000;
@@ -140,9 +143,7 @@ in
             '';
         };
 
-        plugins = concatStringsSep "\n" ([
-          "${pkgs.any-nix-shell}/bin/any-nix-shell zsh --info-right | source /dev/stdin"
-        ] ++ source);
+        plugins = concatStringsSep "\n" source;
 
         localCompletions = toString ./completions;
 
@@ -163,8 +164,6 @@ in
         ${zshrc}
 
         ${hashiCompletion}
-
-        ${builtins.readFile ./nixcomp}
 
         eval "$(${pkgs.direnv}/bin/direnv hook zsh)"
         eval $(${pkgs.gitAndTools.hub}/bin/hub alias -s)
