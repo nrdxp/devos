@@ -77,7 +77,6 @@ in
     histSize = 10000;
 
     setOptions = [
-      "extendedglob"
       "incappendhistory"
       "sharehistory"
       "histignoredups"
