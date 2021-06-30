@@ -15,7 +15,6 @@
   environment.systemPackages = with pkgs; [
     system76-firmware
     obs-studio
-    obs-v4l2sink
     thunderbird
     tmate
   ];
