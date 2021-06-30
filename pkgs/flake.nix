@@ -4,8 +4,6 @@
   inputs = {
     retroarch.url = "github:libretro/retroarch/v1.9.3";
     retroarch.flake = false;
-    any-nix-shell.url = "github:haslersn/any-nix-shell";
-    any-nix-shell.flake = false;
     redshift.url = "github:minus7/redshift/wayland";
     redshift.flake = false;
     sddm-chili.url = "github:MarianArlt/sddm-chili/0.1.5";
