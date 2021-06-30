@@ -42,7 +42,10 @@
         [ "DejaVu Sans Mono Nerd Font Complete Mono" ];
     };
 
-  documentation.dev.enable = true;
+  documentation = {
+    dev.enable = true;
+    man.generateCaches = true;
+  };
 
   programs.thefuck.enable = true;
   programs.firejail.enable = true;
