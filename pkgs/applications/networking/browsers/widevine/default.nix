@@ -1,17 +1,17 @@
-{ stdenv, patchelf, gcc, glib, nspr, nss, unzip, ... }:
+{ lib, stdenv, patchelf, gcc, glib, nspr, nss, unzip, ... }:
 let
   inherit (builtins) fetchurl;
-  inherit (stdenv) lib mkDerivation;
+  inherit (stdenv) mkDerivation;
   mkrpath = p: "${lib.makeSearchPathOutput "lib" "lib64" p}:${lib.makeLibraryPath p}";
 in
 mkDerivation rec {
   name = "${pname}-${version}";
   pname = "widevine-cdm";
-  version = "4.10.1582.2";
+  version = "4.10.2209.1";
 
   src = fetchurl {
     url = "https://dl.google.com/${pname}/${version}-linux-x64.zip";
-    sha256 = "sha256:0g9z8fnzy970klnms92z16saagvxla06bczqrcrjcf0b0d68dzl7";
+    sha256 = "sha256:1mnbxkazjyl3xgvpna9p9qiiyf08j4prdxry51wk8jj5ns6c2zcc";
   };
 
   unpackCmd = "unzip -d ./src $curSrc";
