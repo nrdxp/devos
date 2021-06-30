@@ -37,7 +37,6 @@
   services.usbmuxd.enable = true;
 
   networking.useDHCP = false;
-  networking.interfaces.enp110s0.useDHCP = true;
 
   nix.maxJobs = lib.mkDefault 16;
 
